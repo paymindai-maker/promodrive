@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { PretextDOM } from "@/components/pretext-render";
 
 export function CTASection() {
   return (
@@ -20,9 +21,13 @@ export function CTASection() {
           <div className="grid lg:grid-cols-2">
             {/* Left - Copy */}
             <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-16">
-              <h2 className="heading-serif text-3xl leading-snug text-white sm:text-4xl lg:text-5xl">
-                Optimize every marketing dollar
-              </h2>
+              <PretextDOM
+                text="Optimize every marketing dollar"
+                font="400 44px Prata"
+                lineHeight={52}
+                className="heading-serif text-3xl leading-snug text-white sm:text-4xl lg:text-5xl"
+                as="h2"
+              />
               <p className="mt-4 text-white/70">
                 Ready to grow? Let&apos;s talk about your goals and build a
                 strategy that delivers real results. No commitments — just a
@@ -115,7 +120,7 @@ export function CTASection() {
 
               <div className="mt-12 border-t border-white/10 pt-6">
                 <p className="text-xs text-white/40">
-                  Terms & Conditions &nbsp;·&nbsp; Privacy Policy
+                  Terms & Conditions &nbsp;&middot;&nbsp; Privacy Policy
                 </p>
               </div>
             </div>

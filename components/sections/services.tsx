@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Globe, BarChart3, Share2, Search, LineChart } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { PretextDOM } from "@/components/pretext-render";
 
 const services = [
   {
-    icon: Globe,
     title: "Web Design & Development",
     description:
       "Custom websites built for performance, conversion, and brand experience. No templates — every project starts from zero.",
@@ -19,7 +19,6 @@ const services = [
     num: "01",
   },
   {
-    icon: BarChart3,
     title: "Performance Marketing",
     description:
       "Data-backed campaigns across Google Ads and Meta Ads that don't just look good — they perform. ROI-focused from day one.",
@@ -32,7 +31,6 @@ const services = [
     num: "02",
   },
   {
-    icon: Share2,
     title: "Social Media & Content",
     description:
       "Your brand, your voice — amplified. Creative strategy and content that builds presence and drives engagement.",
@@ -45,7 +43,6 @@ const services = [
     num: "03",
   },
   {
-    icon: Search,
     title: "SEO & Organic Growth",
     description:
       "Rank higher, attract quality traffic, and build authority. Long-term growth strategies that compound over time.",
@@ -58,7 +55,6 @@ const services = [
     num: "04",
   },
   {
-    icon: LineChart,
     title: "Analytics & Tracking",
     description:
       "Know exactly what's working. Full analytics setup, custom dashboards, and reporting that drives smarter decisions.",
@@ -81,11 +77,14 @@ export function ServicesSection() {
           <p className="text-sm font-medium tracking-wider text-primary uppercase">
             Our Services
           </p>
-          <h2 className="heading-serif mt-3 text-3xl leading-snug sm:text-4xl lg:text-5xl">
-            At our agency, we don&apos;t do templates. Every project{" "}
-            <span className="text-primary">starts from zero</span> and ends with
-            impact.
-          </h2>
+          <PretextDOM
+            text="At our agency, we don't do templates. Every project **starts from zero** and ends with impact."
+            font="400 44px Prata"
+            lineHeight={52}
+            className="heading-serif mt-3 text-3xl leading-snug sm:text-4xl lg:text-5xl"
+            highlightClassName="text-primary"
+            as="h2"
+          />
         </div>
 
         {/* Services Accordion-style list */}
@@ -114,7 +113,7 @@ export function ServicesSection() {
 
                 {/* Description */}
                 <div className="lg:w-1/3">
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
                   <Link

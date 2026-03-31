@@ -1,14 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Target,
-  Palette,
-  Zap,
-  BarChart,
-  Layers,
-  Shield,
-} from "lucide-react";
+import { Target, Palette, Zap, BarChart, Layers, Shield } from "lucide-react";
+import { PretextDOM } from "@/components/pretext-render";
 
 const reasons = [
   {
@@ -57,9 +51,13 @@ export function WhyUsSection() {
           <p className="text-sm font-medium tracking-wider text-salmon uppercase">
             Why Choose Us
           </p>
-          <h2 className="heading-serif mt-3 text-3xl leading-snug sm:text-4xl lg:text-5xl">
-            Strategy-first execution with creative + performance balance
-          </h2>
+          <PretextDOM
+            text="Strategy-first execution with creative + performance balance"
+            font="400 44px Prata"
+            lineHeight={52}
+            className="heading-serif mt-3 text-3xl leading-snug text-white sm:text-4xl lg:text-5xl"
+            as="h2"
+          />
         </div>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { PretextDOM } from "@/components/pretext-render";
 
 const stats = [
   { value: "693+", label: "Campaigns Launched" },
@@ -27,13 +28,14 @@ export function TrustStrip() {
             <p className="text-sm font-medium tracking-wider text-muted-foreground uppercase">
               About Us
             </p>
-            <h2 className="heading-serif mt-2 text-2xl leading-snug sm:text-3xl lg:text-4xl">
-              We partner only with brands that want to grow louder, scale
-              faster, and{" "}
-              <span className="text-primary">
-                stand out without apologizing for being bold.
-              </span>
-            </h2>
+            <PretextDOM
+              text="We partner only with brands that want to grow louder, scale faster, and **stand out without apologizing for being bold.**"
+              font="400 36px Prata"
+              lineHeight={44}
+              className="heading-serif mt-2 text-2xl leading-snug sm:text-3xl lg:text-4xl"
+              highlightClassName="text-primary"
+              as="h2"
+            />
           </div>
         </div>
 

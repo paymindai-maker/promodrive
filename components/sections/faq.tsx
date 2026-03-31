@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { PretextDOM } from "@/components/pretext-render";
 
 const faqs = [
   {
@@ -50,9 +51,13 @@ export function FAQSection() {
             <p className="text-sm font-medium tracking-wider text-primary uppercase">
               FAQ
             </p>
-            <h2 className="heading-serif mt-3 text-3xl leading-snug sm:text-4xl lg:text-5xl">
-              Questions? We&apos;ve got answers.
-            </h2>
+            <PretextDOM
+              text="Questions? We've got answers."
+              font="400 44px Prata"
+              lineHeight={52}
+              className="heading-serif mt-3 text-3xl leading-snug sm:text-4xl lg:text-5xl"
+              as="h2"
+            />
             <p className="mt-4 text-muted-foreground">
               Everything you need to know about working with us. Can&apos;t find
               what you&apos;re looking for? Reach out directly.

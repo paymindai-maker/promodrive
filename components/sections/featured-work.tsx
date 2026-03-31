@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import Link from "next/link";
+import { PretextDOM } from "@/components/pretext-render";
 
 const projects = [
   {
@@ -51,11 +50,13 @@ export function FeaturedWorkSection() {
             <p className="text-sm font-medium tracking-wider text-primary uppercase">
               Selected Work
             </p>
-            <h2 className="heading-serif mt-3 text-3xl sm:text-4xl lg:text-5xl">
-              Selected
-              <br />
-              Work
-            </h2>
+            <PretextDOM
+              text="Selected Work"
+              font="400 48px Prata"
+              lineHeight={56}
+              className="heading-serif mt-3 text-3xl sm:text-4xl lg:text-5xl"
+              as="h2"
+            />
           </div>
           <p className="heading-serif text-6xl text-muted-foreground/20 sm:text-8xl lg:text-9xl">
             2025
@@ -120,7 +121,7 @@ export function FeaturedWorkSection() {
               </div>
               <div className="p-6">
                 <p className="text-xs font-medium text-muted-foreground uppercase">
-                  PROJECT 0{i + 2} · {project.category}
+                  PROJECT 0{i + 2} &middot; {project.category}
                 </p>
                 <h3 className="heading-serif mt-2 text-xl">{project.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
@@ -150,11 +151,13 @@ export function FeaturedWorkSection() {
           className="mt-16 grid items-center gap-8 rounded-2xl border border-border bg-card p-8 sm:grid-cols-3 lg:p-12"
         >
           <div className="sm:col-span-1">
-            <h3 className="heading-serif text-2xl lg:text-3xl">
-              Success
-              <br />
-              Stories
-            </h3>
+            <PretextDOM
+              text="Success Stories"
+              font="400 32px Prata"
+              lineHeight={40}
+              className="heading-serif text-2xl lg:text-3xl"
+              as="h3"
+            />
           </div>
           <div className="flex gap-8 sm:col-span-1 sm:justify-center">
             <div className="text-center">

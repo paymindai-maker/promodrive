@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { PretextDOM } from "@/components/pretext-render";
 
 const steps = [
   {
@@ -37,9 +38,13 @@ export function ProcessSection() {
           <p className="text-sm font-medium tracking-wider text-primary uppercase">
             Our Process
           </p>
-          <h2 className="heading-serif mt-3 text-3xl leading-snug sm:text-4xl lg:text-5xl">
-            A proven framework that takes you from idea to impact
-          </h2>
+          <PretextDOM
+            text="A proven framework that takes you from idea to impact"
+            font="400 44px Prata"
+            lineHeight={52}
+            className="heading-serif mt-3 text-3xl leading-snug sm:text-4xl lg:text-5xl"
+            as="h2"
+          />
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

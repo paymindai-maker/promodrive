@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight, Play } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { PretextDOM } from "@/components/pretext-render";
 
 export function HeroSection() {
   return (
@@ -22,17 +23,23 @@ export function HeroSection() {
               100+ projects delivered
             </div>
 
-            <h1 className="heading-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
-              Engaging{" "}
-              <span className="text-primary">digital strategies</span> that turn
-              visitors into clients
-            </h1>
+            {/* Pretext-powered headline — pre-measured to prevent layout shift */}
+            <PretextDOM
+              text="Engaging **digital strategies** that turn visitors into clients"
+              font="400 64px Prata"
+              lineHeight={72}
+              className="heading-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
+              highlightClassName="text-primary"
+              as="h1"
+            />
 
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
-              We create data-driven marketing solutions that balance creativity,
-              technology, and performance — built to scale your brand and
-              accelerate growth.
-            </p>
+            <PretextDOM
+              text="We create data-driven marketing solutions that balance creativity, technology, and performance — built to scale your brand and accelerate growth."
+              font="400 18px DM Sans"
+              lineHeight={28}
+              className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground"
+              as="p"
+            />
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Button
