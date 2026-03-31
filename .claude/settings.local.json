@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \":*)",
+      "Bash(npx shadcn@latest add accordion badge card separator input textarea sheet -y)",
+      "Bash(npm install:*)",
+      "Bash(node -e \"console.log\\(''ok''\\)\")",
+      "Bash(node ./node_modules/.bin/shadcn add accordion badge card separator input textarea sheet -y)",
+      "Bash(node node_modules/shadcn/dist/index.js add accordion badge card separator input textarea sheet -y)",
+      "Bash(npm run:*)",
+      "Bash(node node_modules/next/dist/bin/next build)",
+      "Bash(node node_modules/next/dist/bin/next dev --turbopack -p 3000)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(netstat -ano)"
+    ]
+  }
+}
