@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -9,7 +10,7 @@ import {
   SheetTrigger,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { Menu, ArrowUpRight } from "lucide-react";
+import { Menu, ArrowUpRight, Sun, Moon } from "lucide-react";
 
 const navLinks = [
   { href: "#services", label: "Services" },
@@ -18,6 +19,23 @@ const navLinks = [
   { href: "#process", label: "Process" },
   { href: "#contact", label: "Contact" },
 ];
+
+function ThemeToggle() {
+  const { resolvedTheme, setTheme } = useTheme();
+
+  return (
+    <Button
+      variant="ghost"
+      size="icon"
+      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+      className="h-9 w-9"
+    >
+      <Sun className="h-4 w-4 rotate-0 scale-100 transition-transform dark:-rotate-90 dark:scale-0" />
+      <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-transform dark:rotate-0 dark:scale-100" />
+      <span className="sr-only">Toggle theme</span>
+    </Button>
+  );
+}
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -45,8 +63,9 @@ export function Header() {
           ))}
         </nav>
 
-        {/* Desktop CTA */}
-        <div className="hidden items-center gap-3 md:flex">
+        {/* Desktop CTA + Theme Toggle */}
+        <div className="hidden items-center gap-2 md:flex">
+          <ThemeToggle />
           <Button
             variant="default"
             className="group gap-2 rounded-full bg-foreground px-6 text-background hover:bg-foreground/90"
@@ -59,37 +78,40 @@ export function Header() {
           </Button>
         </div>
 
-        {/* Mobile Menu */}
-        <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon">
-              <Menu className="h-5 w-5" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-80">
-            <SheetTitle className="heading-serif text-lg">Menu</SheetTitle>
-            <nav className="mt-8 flex flex-col gap-6">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="text-lg font-medium transition-colors hover:text-primary"
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <Button
-                className="mt-4 w-full rounded-full bg-foreground text-background hover:bg-foreground/90"
-                asChild
-              >
-                <Link href="#contact" onClick={() => setOpen(false)}>
-                  Book a Call
-                </Link>
+        {/* Mobile: Theme Toggle + Menu */}
+        <div className="flex items-center gap-1 md:hidden">
+          <ThemeToggle />
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-5 w-5" />
               </Button>
-            </nav>
-          </SheetContent>
-        </Sheet>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-80">
+              <SheetTitle className="heading-serif text-lg">Menu</SheetTitle>
+              <nav className="mt-8 flex flex-col gap-6">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="text-lg font-medium transition-colors hover:text-primary"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                <Button
+                  className="mt-4 w-full rounded-full bg-foreground text-background hover:bg-foreground/90"
+                  asChild
+                >
+                  <Link href="#contact" onClick={() => setOpen(false)}>
+                    Book a Call
+                  </Link>
+                </Button>
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );

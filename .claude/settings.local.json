@@ -11,7 +11,12 @@
       "Bash(node node_modules/next/dist/bin/next build)",
       "Bash(node node_modules/next/dist/bin/next dev --turbopack -p 3000)",
       "mcp__Claude_Preview__preview_start",
-      "Bash(netstat -ano)"
+      "Bash(netstat -ano)",
+      "Bash(node node_modules/.bin/shadcn.cmd add avatar dialog label select tabs table switch dropdown-menu -y)",
+      "Bash(node -e \"require\\(''''child_process''''\\).execSync\\(''''node node_modules/shadcn/dist/index.js add avatar dialog label select tabs table switch dropdown-menu -y'''', {stdio:''''inherit'''', cwd:''''C:/dev/Promodrive''''}\\)\")",
+      "Bash(PATH=\"/c/nvm4w/nodejs:$PATH\" npm install firebase)",
+      "Bash(node node_modules/next/dist/bin/next build --no-turbopack)",
+      "Bash(taskkill //PID 17908 //F)"
     ]
   }
 }
