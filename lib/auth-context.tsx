@@ -13,8 +13,7 @@ import {
   signOut as firebaseSignOut,
   type User,
 } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore/lite";
-import { auth, db } from "./firebase";
+import { auth } from "./firebase";
 
 interface AuthState {
   user: User | null;
@@ -41,9 +40,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const unsub = onAuthStateChanged(auth, async (firebaseUser) => {
       setUser(firebaseUser);
       if (firebaseUser) {
-        // Check admin role in Firestore users collection
-        const userDoc = await getDoc(doc(db, "users", firebaseUser.uid));
-        setIsAdmin(userDoc.exists() && userDoc.data()?.role === "admin");
+        const token = await firebaseUser.getIdTokenResult();
+        setIsAdmin(token.claims.admin === true);
       } else {
         setIsAdmin(false);
       }
@@ -53,7 +51,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signIn = async (email: string, password: string) => {
-    await signInWithEmailAndPassword(auth, email, password);
+    const credential = await signInWithEmailAndPassword(auth, email, password);
+    await credential.user.getIdToken(true);
   };
 
   const signOut = async () => {

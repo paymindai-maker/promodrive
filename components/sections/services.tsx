@@ -1,9 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { PretextDOM } from "@/components/pretext-render";
+import { Button } from "@/components/ui/button";
 
 const services = [
   {
@@ -69,6 +71,27 @@ const services = [
 ];
 
 export function ServicesSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeService = services[activeIndex];
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % services.length);
+    }, 5000);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const showPrevious = () => {
+    setActiveIndex((current) =>
+      current === 0 ? services.length - 1 : current - 1
+    );
+  };
+
+  const showNext = () => {
+    setActiveIndex((current) => (current + 1) % services.length);
+  };
+
   return (
     <section id="services" className="py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6">
@@ -87,61 +110,99 @@ export function ServicesSection() {
           />
         </div>
 
-        {/* Services Accordion-style list */}
-        <div className="divide-y divide-border">
-          {services.map((service, i) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group py-8 lg:py-10"
-            >
-              <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-12">
-                {/* Number & Title */}
-                <div className="flex items-start gap-4 lg:w-1/3">
-                  <span className="text-sm font-medium text-muted-foreground">
-                    {service.num}
-                  </span>
-                  <div>
-                    <h3 className="heading-serif text-xl lg:text-2xl">
-                      {service.title}
-                    </h3>
-                  </div>
-                </div>
+        <div className="grid items-center gap-4 lg:grid-cols-[auto_1fr_auto] lg:gap-8">
+          <Button
+            type="button"
+            variant="outline"
+            size="icon"
+            onClick={showPrevious}
+            className="order-2 h-11 w-11 rounded-full lg:order-none"
+            aria-label="Show previous service"
+          >
+            <ArrowLeft className="h-4 w-4" />
+          </Button>
 
-                {/* Description */}
-                <div className="lg:w-1/3">
-                  <p className="leading-relaxed text-muted-foreground">
-                    {service.description}
-                  </p>
+          <div className="relative min-h-[430px] overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-8 lg:min-h-[360px] lg:p-10">
+            <AnimatePresence mode="wait">
+              <motion.article
+                key={activeService.title}
+                initial={{ opacity: 0, x: 48 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -48 }}
+                transition={{ duration: 0.45, ease: "easeOut" }}
+                className="grid h-full gap-8 lg:grid-cols-[0.9fr_1.1fr]"
+              >
+                <div className="flex min-h-72 flex-col justify-between">
+                  <div>
+                    <span className="text-sm font-medium text-muted-foreground">
+                      {activeService.num}
+                    </span>
+                    <h3 className="heading-serif mt-4 max-w-xl text-3xl leading-tight sm:text-4xl lg:text-5xl">
+                      {activeService.title}
+                    </h3>
+                    <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">
+                      {activeService.description}
+                    </p>
+                  </div>
+
                   <Link
                     href="#contact"
-                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors hover:text-primary"
+                    className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
                   >
                     Learn more
-                    <ArrowUpRight className="h-3.5 w-3.5" />
+                    <ArrowUpRight className="h-4 w-4" />
                   </Link>
                 </div>
 
-                {/* Bullets */}
-                <div className="lg:w-1/3">
-                  <ul className="space-y-2">
-                    {service.bullets.map((bullet) => (
-                      <li
-                        key={bullet}
-                        className="flex items-center gap-2 text-sm text-muted-foreground"
-                      >
-                        <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                <div className="grid content-end gap-4 sm:grid-cols-2">
+                  {activeService.bullets.map((bullet, i) => (
+                    <motion.div
+                      key={bullet}
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.35, delay: i * 0.06 }}
+                      className="rounded-2xl border border-border bg-background/70 p-5"
+                    >
+                      <span className="mb-5 flex h-9 w-9 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
+                        {i + 1}
+                      </span>
+                      <p className="text-sm font-medium leading-relaxed">
                         {bullet}
-                      </li>
-                    ))}
-                  </ul>
+                      </p>
+                    </motion.div>
+                  ))}
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.article>
+            </AnimatePresence>
+
+            <div className="absolute right-6 bottom-6 flex items-center gap-2 sm:right-8 lg:right-10 lg:bottom-10">
+              {services.map((service, i) => (
+                <button
+                  key={service.title}
+                  type="button"
+                  onClick={() => setActiveIndex(i)}
+                  className={`h-2 rounded-full transition-all ${
+                    i === activeIndex
+                      ? "w-8 bg-primary"
+                      : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/60"
+                  }`}
+                  aria-label={`Show ${service.title}`}
+                  aria-current={i === activeIndex}
+                />
+              ))}
+            </div>
+          </div>
+
+          <Button
+            type="button"
+            variant="outline"
+            size="icon"
+            onClick={showNext}
+            className="order-3 h-11 w-11 rounded-full lg:order-none"
+            aria-label="Show next service"
+          >
+            <ArrowRight className="h-4 w-4" />
+          </Button>
         </div>
       </div>
     </section>
