@@ -7,39 +7,39 @@ import { PretextDOM } from "@/components/pretext-render";
 const reasons = [
   {
     icon: Target,
-    title: "Strategic Creativity",
+    title: "Creative Strategy",
     description:
-      "Marketing ideas that break the cookie-cutter approach. We craft unique strategies that differentiate your brand and deliver tangible growth.",
+      "Ideas that you refuse to scroll past — that's how we make sure your brand stands out amidst the crowd.",
   },
   {
     icon: BarChart,
-    title: "Real Results",
+    title: "Result Oriented",
     description:
-      "Campaigns that don't just look good — they perform. Data-backed concepts paired with high-impact creative execution.",
+      "Not just another campaign with plenty of numbers to decode. We strategize to deliver results.",
   },
   {
     icon: Palette,
-    title: "Authentic Brand Expression",
+    title: "In-depth Branding",
     description:
-      "Your brand, your voice — without compromise. We help you show up confidently, consistently, and unmistakably in your market.",
+      "Zero compromise on your brand voice. Our team works on creating an authentic brand personality that customers love.",
   },
   {
     icon: Zap,
-    title: "Fast Turnaround",
+    title: "Optimum Turnaround",
     description:
-      "Speed without sacrifice. We deliver high-quality work on timelines that keep your business moving forward.",
+      "Efficient workflow to ensure timely delivery of work so your business growth only moves up.",
   },
   {
     icon: Shield,
-    title: "Transparent Reporting",
+    title: "Honest Reports",
     description:
-      "No vanity metrics, no fluff. Clear dashboards and honest reporting so you always know exactly where your investment goes.",
+      "No cover ups, no gaslighting! We present the data so you know exactly what you invested for.",
   },
   {
     icon: Layers,
-    title: "Custom Solutions",
+    title: "Tailormade Solutions",
     description:
-      "No templates, no one-size-fits-all packages. Every strategy is built from scratch for your specific goals and audience.",
+      "No template, only customised strategies built from scratch especially for you.",
   },
 ];
 
@@ -52,7 +52,7 @@ export function WhyUsSection() {
             Why Choose Us
           </p>
           <PretextDOM
-            text="Strategy-first execution with creative + performance balance"
+            text="Strategy-first approach with creative execution & smarter decisions"
             font="400 44px Prata"
             lineHeight={52}
             className="heading-serif mt-3 text-3xl leading-snug text-white sm:text-4xl lg:text-5xl"

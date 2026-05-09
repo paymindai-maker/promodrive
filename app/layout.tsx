@@ -22,10 +22,35 @@ const rosario = Rosario({
   weight: ["400", "500", "600", "700"],
 });
 
-export const metadata = {
-  title: "Promodrive | Digital Marketing Agency",
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "MarketingAgency",
+  name: "Promodrive",
+  url: "https://promodrive.in",
+  logo: "https://promodrive.in/logo.png",
   description:
-    "We build high-converting websites and growth-focused digital marketing systems for modern brands.",
+    "Digital marketing agency in New Delhi, India specialising in SEO, performance marketing, social media, and web design.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "New Delhi",
+    addressCountry: "IN",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+91-98XX-XXX-XXX",
+    contactType: "customer service",
+    email: "hello@promodrive.in",
+  },
+  sameAs: [
+    "https://instagram.com/promodrive",
+    "https://linkedin.com/company/promodrive",
+  ],
+};
+
+export const metadata = {
+  title: "Digital Marketing Agency in India | Promodrive",
+  description:
+    "Promodrive is a digital marketing agency in New Delhi, India. We deliver SEO, performance marketing, social media management, and web design services that grow your brand. Schedule a free call today.",
 };
 
 export default function RootLayout({
@@ -46,6 +71,10 @@ export default function RootLayout({
       )}
     >
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <ThemeProvider>
           <AuthProvider>{children}</AuthProvider>
         </ThemeProvider>

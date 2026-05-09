@@ -9,62 +9,62 @@ import { Button } from "@/components/ui/button";
 
 const services = [
   {
-    title: "Web Design & Development",
+    title: "Website Design & Development",
     description:
-      "Custom websites built for performance, conversion, and brand experience. No templates — every project starts from zero.",
+      "Every website built your way. Faster & professional for an unforgettable brand experience.",
     bullets: [
-      "Custom UI/UX design",
-      "Next.js & modern frameworks",
-      "Mobile-first responsive builds",
-      "Speed & SEO optimized",
+      "UI/UX Design for better conversion",
+      "Landing pages for campaigns",
+      "Optimised App development",
+      "Scalable infrastructure with integrations",
     ],
     num: "01",
   },
   {
-    title: "Performance Marketing",
+    title: "Social Media Marketing",
     description:
-      "Data-backed campaigns across Google Ads and Meta Ads that don't just look good — they perform. ROI-focused from day one.",
+      "Creating your brand's unique voice in the overwhelming noise. Content that drives engagement and builds a loyal fanbase.",
     bullets: [
-      "Google Ads management",
-      "Meta & social advertising",
-      "Conversion tracking setup",
-      "A/B testing & optimization",
+      "Graphic designing & content optimisation",
+      "Profile optimisation & strategy for growth",
+      "High impact content creation",
+      "Accurate branding & community building",
     ],
     num: "02",
   },
   {
-    title: "Social Media & Content",
+    title: "Performance Marketing",
     description:
-      "Your brand, your voice — amplified. Creative strategy and content that builds presence and drives engagement.",
+      "Omnichannel marketing through impactful campaigns that actually perform. ROI-first approach from day one.",
     bullets: [
-      "Content strategy & calendar",
-      "Social media management",
-      "Creative design & video",
-      "Community engagement",
+      "Highly converting pay per click ads",
+      "Email marketing & lead generation",
+      "Ad funnel & campaign strategy",
+      "Retargeting and conversion scaling",
     ],
     num: "03",
   },
   {
     title: "SEO & Organic Growth",
     description:
-      "Rank higher, attract quality traffic, and build authority. Long-term growth strategies that compound over time.",
+      "Levelling up your Google SERP presence through a targeted approach. Sustainable strategies that compound authority over time.",
     bullets: [
-      "Technical SEO audits",
-      "Keyword strategy",
-      "Content optimization",
-      "Link building",
+      "Google My Business & digital presence optimisation",
+      "On-page, Off-page, and Technical SEO",
+      "Keyword & search intent strategy for content-led growth",
+      "Authority building and backlinking",
     ],
     num: "04",
   },
   {
-    title: "Analytics & Tracking",
+    title: "Growth Analysis & Tracking",
     description:
-      "Know exactly what's working. Full analytics setup, custom dashboards, and reporting that drives smarter decisions.",
+      "End-to-end strategy & result analysis to find what actually works. Making smarter moves with data-backed quarterly analysis.",
     bullets: [
-      "GA4 & GTM setup",
-      "Custom dashboards",
-      "Attribution modeling",
-      "Monthly reporting",
+      "Dashboard setup and data tracking",
+      "Customer journey analysis & growth audits",
+      "Scaling insights & strategy optimisation",
+      "Quality lead generation through ad funnels",
     ],
     num: "05",
   },
@@ -101,7 +101,7 @@ export function ServicesSection() {
             Our Services
           </p>
           <PretextDOM
-            text="At our agency, we don't do templates. Every project **starts from zero** and ends with impact."
+            text="Our digital marketing services start from zero — **customised for your brand,** built for impact."
             font="400 44px Prata"
             lineHeight={52}
             className="heading-serif mt-3 text-3xl leading-snug sm:text-4xl lg:text-5xl"

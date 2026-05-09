@@ -70,7 +70,7 @@ export function HeroSection() {
 
             {/* Pretext-powered headline — pre-measured to prevent layout shift */}
             <PretextDOM
-              text="Engaging **digital strategies** that turn visitors into clients"
+              text="Digital marketing strategy has **never been easier!**"
               font="400 64px Prata"
               lineHeight={72}
               className="heading-serif text-4xl leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
@@ -79,7 +79,7 @@ export function HeroSection() {
             />
 
             <PretextDOM
-              text="We create data-driven marketing solutions that balance creativity, technology, and performance — built to scale your brand and accelerate growth."
+              text="New-age, impactful digital marketing for the AI era. Rewriting the strategy playbook to boost your brand's organic performance. Give us 30 mins, and you'll think about your business differently."
               font="400 18px DM Sans"
               lineHeight={28}
               className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground"
@@ -93,7 +93,7 @@ export function HeroSection() {
                 asChild
               >
                 <Link href="#contact">
-                  Get Started
+                  Schedule a Call
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </Link>
               </Button>

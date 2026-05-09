@@ -29,7 +29,7 @@ export function TrustStrip() {
               About Us
             </p>
             <PretextDOM
-              text="We partner only with brands that want to grow louder, scale faster, and **stand out without apologizing for being bold.**"
+              text="The world is hustling, but your brand should not. We make branding & marketing **a cakewalk for business ideas that deserve something iconic.**"
               font="400 36px Prata"
               lineHeight={44}
               className="heading-serif mt-2 text-2xl leading-snug sm:text-3xl lg:text-4xl"

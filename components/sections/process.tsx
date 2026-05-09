@@ -8,25 +8,25 @@ const steps = [
     num: "01",
     title: "Discover",
     description:
-      "We start by understanding your business, goals, audience, and competitive landscape. No assumptions — just deep research and honest conversations.",
+      "First 3 meetings to understand your business in-depth with no doubts left to clear. Knowing your expectations and sharing our expert opinion to spice up your idea.",
   },
   {
     num: "02",
     title: "Plan",
     description:
-      "We map out a tailored strategy covering channels, messaging, creative direction, and KPIs. You'll know exactly what we're doing and why before anything launches.",
+      "Strategy building phase for the next 3–6 months. Includes KPIs, quarterly targets, launch strategies, and future action plans.",
   },
   {
     num: "03",
-    title: "Build & Launch",
+    title: "Execute",
     description:
-      "From websites to ad campaigns, we execute with precision and speed. Every deliverable goes through rigorous quality checks before it goes live.",
+      "Creating content, websites, & campaigns with precision after multiple quality checks and of course, your approval.",
   },
   {
     num: "04",
-    title: "Optimize",
+    title: "Improvise",
     description:
-      "We monitor, test, and iterate continuously. Monthly reports, performance reviews, and proactive recommendations to keep your growth compounding.",
+      "Every campaign, every post — monitored like an investigative project only to deliver better for the next phase.",
   },
 ];
 
@@ -39,7 +39,7 @@ export function ProcessSection() {
             Our Process
           </p>
           <PretextDOM
-            text="A proven framework that takes you from idea to impact"
+            text="Our digital marketing framework for your success"
             font="400 44px Prata"
             lineHeight={52}
             className="heading-serif mt-3 text-3xl leading-snug sm:text-4xl lg:text-5xl"

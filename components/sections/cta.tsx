@@ -22,16 +22,15 @@ export function CTASection() {
             {/* Left - Copy */}
             <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-16">
               <PretextDOM
-                text="Optimize every marketing dollar"
+                text="You have got questions? Connect with us for more clarity."
                 font="400 44px Prata"
                 lineHeight={52}
                 className="heading-serif text-3xl leading-snug text-white sm:text-4xl lg:text-5xl"
                 as="h2"
               />
               <p className="mt-4 text-white/70">
-                Ready to grow? Let&apos;s talk about your goals and build a
-                strategy that delivers real results. No commitments — just a
-                conversation.
+                Reach out to us directly, schedule a free call. None of your
+                questions will go unanswered.
               </p>
 
               <div className="mt-8 grid gap-4">
@@ -70,7 +69,7 @@ export function CTASection() {
                   size="lg"
                   className="group mt-2 w-full gap-2 rounded-full bg-white text-dark-teal hover:bg-white/90 sm:w-auto"
                 >
-                  Get Started
+                  Schedule a Call
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </Button>
               </div>
