@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 
 const footerLinks = {
@@ -31,9 +32,15 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block">
-              <span className="heading-serif text-xl tracking-tight">
-                Promo<span className="text-primary">drive</span>
-              </span>
+              <div className="relative h-11 w-44 overflow-hidden">
+                <Image
+                  src="/logos/PromoDrive Logo.png"
+                  alt="Promodrive Branding Lab"
+                  fill
+                  className="object-cover object-[center_52%]"
+                  sizes="176px"
+                />
+              </div>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               We build high-converting websites and growth-focused digital
@@ -79,13 +86,13 @@ export function Footer() {
           </p>
           <div className="flex gap-6">
             <Link
-              href="#"
+              href="/privacy-policy"
               className="text-xs text-muted-foreground hover:text-foreground"
             >
               Privacy Policy
             </Link>
             <Link
-              href="#"
+              href="/terms-of-service"
               className="text-xs text-muted-foreground hover:text-foreground"
             >
               Terms of Service

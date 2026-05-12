@@ -3,11 +3,27 @@
 import { motion } from "framer-motion";
 import { PretextDOM } from "@/components/pretext-render";
 
-const stats = [
-  { value: "693+", label: "Campaigns Launched" },
-  { value: "$750M+", label: "Revenue Generated for Clients" },
-  { value: "150+", label: "Websites Delivered" },
-  { value: "35+", label: "Industries Served" },
+const promises = [
+  {
+    title: "Performance-Driven Strategy",
+    description:
+      "Every campaign is built to generate measurable growth, not vanity metrics.",
+  },
+  {
+    title: "Fast & Efficient Execution",
+    description:
+      "Lean workflows, clear communication, and rapid delivery without compromising quality.",
+  },
+  {
+    title: "Creative That Converts",
+    description:
+      "High-impact branding, content, and marketing designed to capture attention and drive action.",
+  },
+  {
+    title: "Long-Term Brand Growth",
+    description:
+      "We build scalable digital systems that strengthen your brand over time.",
+  },
 ];
 
 export function TrustStrip() {
@@ -24,10 +40,12 @@ export function TrustStrip() {
               />
             ))}
           </div>
+
           <div className="max-w-2xl" id="about">
-            <p className="text-sm font-medium tracking-wider text-muted-foreground uppercase">
+            <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
               About Us
             </p>
+
             <PretextDOM
               text="The world is hustling, but your brand should not. We make branding & marketing **a cakewalk for business ideas that deserve something iconic.**"
               font="400 36px Prata"
@@ -39,22 +57,23 @@ export function TrustStrip() {
           </div>
         </div>
 
-        {/* Stats grid */}
-        <div className="grid grid-cols-2 gap-6 lg:grid-cols-4 lg:gap-8">
-          {stats.map((stat, i) => (
+        {/* Promise grid */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          {promises.map((item, i) => (
             <motion.div
-              key={stat.label}
+              key={item.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="text-center lg:text-left"
+              className="rounded-2xl border border-border/60 bg-background/40 p-6 backdrop-blur-sm"
             >
-              <p className="heading-serif text-3xl sm:text-4xl lg:text-5xl">
-                {stat.value}
-              </p>
-              <p className="mt-1 text-sm text-muted-foreground">
-                {stat.label}
+              <h3 className="heading-serif text-xl leading-snug">
+                {item.title}
+              </h3>
+
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {item.description}
               </p>
             </motion.div>
           ))}

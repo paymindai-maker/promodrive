@@ -54,7 +54,7 @@ export function CTASection() {
                         Office
                       </p>
                       <p className="mt-0.5 text-sm text-white/80">
-                        Creative Hub, Digital District, New Delhi, India
+                        A-43, A Block, Sector 63, Noida, Uttar Pradesh 201301
                       </p>
                     </div>
                   </div>
@@ -71,7 +71,7 @@ export function CTASection() {
                         href="mailto:hello@promodrive.in"
                         className="mt-0.5 text-sm text-white/80 transition-colors hover:text-white"
                       >
-                        hello@promodrive.in
+                        info@promodrive.in
                       </a>
                     </div>
                   </div>
@@ -88,7 +88,7 @@ export function CTASection() {
                         href="tel:+919800000000"
                         className="mt-0.5 text-sm text-white/80 transition-colors hover:text-white"
                       >
-                        +91 98XX XXX XXX
+                        +91 9126096260
                       </a>
                     </div>
                   </div>
@@ -108,7 +108,9 @@ export function CTASection() {
                 </div>
 
                 <p className="text-xs text-white/30">
-                  Terms & Conditions &nbsp;&middot;&nbsp; Privacy Policy
+                  <a href="/terms-of-service" className="hover:text-white/60 transition-colors">Terms of Service</a>
+                  &nbsp;&middot;&nbsp;
+                  <a href="/privacy-policy" className="hover:text-white/60 transition-colors">Privacy Policy</a>
                 </p>
               </div>
             </div>

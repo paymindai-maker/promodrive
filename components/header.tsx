@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import {
@@ -44,10 +45,17 @@ export function Header() {
     <header className="fixed top-0 right-0 left-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:h-20">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <span className="heading-serif text-xl font-normal tracking-tight lg:text-2xl">
-            Promo<span className="text-primary">drive</span>
-          </span>
+        <Link href="/" className="flex items-center">
+          <div className="relative h-10 w-40 overflow-hidden lg:h-12 lg:w-48">
+            <Image
+              src="/logos/PromoDrive Logo.png"
+              alt="Promodrive Branding Lab"
+              fill
+              priority
+              className="object-cover object-[center_52%]"
+              sizes="(max-width: 1024px) 160px, 192px"
+            />
+          </div>
         </Link>
 
         {/* Desktop Nav */}
@@ -88,7 +96,17 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-80">
-              <SheetTitle className="heading-serif text-lg">Menu</SheetTitle>
+              <SheetTitle>
+                <div className="relative h-10 w-40 overflow-hidden">
+                  <Image
+                    src="/logos/PromoDrive Logo.png"
+                    alt="Promodrive Branding Lab"
+                    fill
+                    className="object-cover object-[center_52%]"
+                    sizes="160px"
+                  />
+                </div>
+              </SheetTitle>
               <nav className="mt-8 flex flex-col gap-6">
                 {navLinks.map((link) => (
                   <Link
