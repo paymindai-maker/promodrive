@@ -2,43 +2,123 @@
 
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 import { PretextDOM } from "@/components/pretext-render";
 
 const projects = [
   {
-    title: "Brand Growth Strategy",
-    client: "Dalal Group",
-    category: "Full-funnel Marketing",
+    title: "Premium Events Brand Experience",
+    client: "Mitera Events",
+    category: "Web Design & Branding",
     description:
-      "Full brand marketing strategy that increased engagement by 250% and generated 3x ROI on ad spend.",
-    tags: ["Strategy", "Paid Media", "Creative"],
+      "Crafted a high-impact brand presence showcasing portfolio, media presence, and premium services. Immersive copywriting and storytelling for a refined visual diary.",
+    tags: ["Web Design", "Branding", "Copywriting"],
     color: "bg-dark-teal",
-    year: "2025",
+    link: "https://miteraedge.com/",
+    type: "Website",
     featured: true,
   },
   {
-    title: "Product Launch Campaign",
-    client: "TechStart Inc",
-    category: "Digital Campaign",
+    title: "Smart Calorie Tracking App",
+    client: "Caloriz Tracker",
+    category: "App Development",
     description:
-      "Multi-channel product launch campaign with 180% over target in first-month sales.",
-    tags: ["Google Ads", "Social Media", "Web Design"],
+      "Scalable calorie tracking app with barcode-based food logging, personalised meal planning, and intuitive UX.",
+    tags: ["App Dev", "UI/UX", "Product Design"],
     color: "bg-primary",
-    year: "2025",
+    link: "https://play.google.com/store/apps/details?id=com.bhoomitechzone.caloriz&hl=en_IN",
+    type: "Mobile App",
     featured: false,
   },
   {
-    title: "E-Commerce Redesign",
-    client: "ModernHome",
+    title: "Real Estate Listings Platform",
+    client: "GharPlot",
+    category: "App Development",
+    description:
+      "User-friendly mobile app with verified listings, virtual tours, smart filters, and direct buyer-seller communication.",
+    tags: ["App Dev", "PropTech", "UI/UX"],
+    color: "bg-salmon",
+    link: "https://play.google.com/store/apps/details?id=com.bhoomitechzone.gharplot&hl=en_IN",
+    type: "Mobile App",
+    featured: false,
+  },
+  {
+    title: "Property Rental Management App",
+    client: "Kirayedar24",
+    category: "App Development",
+    description:
+      "Streamlined rental platform with verified listings, direct communication, and smooth digital transactions.",
+    tags: ["App Dev", "PropTech", "UI/UX"],
+    color: "bg-dark-teal",
+    link: "https://play.google.com/store/apps/details?id=com.bhoomitechzone.kirayedar24&hl=en_IN",
+    type: "Mobile App",
+    featured: false,
+  },
+  {
+    title: "EV Charging Smart Platform",
+    client: "EV Smart",
+    category: "App Development",
+    description:
+      "Smart EV charging platform with live station tracking, slot booking, payment integration, and real-time updates.",
+    tags: ["App Dev", "EV Tech", "Smart Platform"],
+    color: "bg-dark-teal",
+    link: "https://play.google.com/store/apps/details?id=hash.code.evsmart",
+    type: "Mobile App",
+    featured: false,
+  },
+  {
+    title: "Telemedicine & Healthcare App",
+    client: "DoctCare Services",
+    category: "App Development",
+    description:
+      "Telemedicine platform enabling online consultations, appointment scheduling, digital prescriptions, and health records.",
+    tags: ["App Dev", "HealthTech", "Telemedicine"],
+    color: "bg-primary",
+    link: "https://play.google.com/store/apps/details?id=bhoomi.app.doctcare.doctcare_app",
+    type: "Mobile App",
+    featured: false,
+  },
+  {
+    title: "Cancer Patient Healthcare Ecosystem",
+    client: "OncaSol Healthcare",
+    category: "Web Design & E-Commerce",
+    description:
+      "Healthcare ecosystem integrating e-commerce, telemedicine portal, service listings, and content-focused solutions.",
+    tags: ["Web Design", "E-Commerce", "HealthTech"],
+    color: "bg-salmon",
+    link: "https://oncasol.com/",
+    type: "Website",
+    featured: false,
+  },
+  {
+    title: "EdTech Certification Platform",
+    client: "SkillsBoost",
     category: "Web Development",
     description:
-      "Complete website overhaul that boosted conversion rates by 185% and reduced bounce rate by 40%.",
-    tags: ["Web Dev", "UI/UX", "SEO"],
-    color: "bg-brand-black",
-    year: "2024",
+      "Scalable edtech platform with certification programs, smooth learning experience, and career-focused skill development.",
+    tags: ["Web Dev", "EdTech", "UI/UX"],
+    color: "bg-dark-teal",
+    link: "https://www.skillsboost.in/",
+    type: "Website",
+    featured: false,
+  },
+  {
+    title: "Ayurveda Wellness Platform",
+    client: "Medix Ayurveda",
+    category: "Web Design & Content",
+    description:
+      "Informative Ayurveda-focused platform listing herbal wellness products, handling enquiries, and educating users.",
+    tags: ["Web Design", "E-Commerce", "Content"],
+    color: "bg-primary",
+    link: "https://magical-snickerdoodle-6274d5.netlify.app/",
+    type: "Website",
     featured: false,
   },
 ];
+
+const featured = projects[0];
+const rest = projects.slice(1);
 
 export function FeaturedWorkSection() {
   return (
@@ -48,10 +128,10 @@ export function FeaturedWorkSection() {
         <div className="mb-16 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <div>
             <p className="text-sm font-medium tracking-wider text-primary uppercase">
-              Selected Work
+              Our Work
             </p>
             <PretextDOM
-              text="Selected Work"
+              text="Projects we're proud of"
               font="400 48px Prata"
               lineHeight={56}
               className="heading-serif mt-3 text-3xl sm:text-4xl lg:text-5xl"
@@ -71,122 +151,90 @@ export function FeaturedWorkSection() {
           transition={{ duration: 0.6 }}
           className="group relative mb-8 overflow-hidden rounded-3xl"
         >
-          <div
-            className={`${projects[0].color} relative aspect-[16/9] sm:aspect-[21/9]`}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
-            <div className="absolute top-8 right-8 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
-              PROJECT 01
-            </div>
-            <div className="absolute bottom-0 left-0 p-8 sm:p-12">
-              <p className="text-sm text-white/70">{projects[0].category}</p>
-              <h3 className="heading-serif mt-2 text-2xl text-white sm:text-4xl">
-                {projects[0].client}
-              </h3>
-              <p className="mt-3 max-w-md text-sm text-white/70">
-                {projects[0].description}
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {projects[0].tags.map((tag) => (
-                  <Badge
-                    key={tag}
-                    variant="secondary"
-                    className="rounded-full border-none bg-white/10 text-white hover:bg-white/20"
-                  >
-                    {tag}
-                  </Badge>
-                ))}
+          <Link href={featured.link} target="_blank" rel="noopener noreferrer">
+            <div className={`${featured.color} relative aspect-[16/9] sm:aspect-[21/9]`}>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/10 to-transparent" />
+              <div className="absolute top-8 right-8 flex items-center gap-3">
+                <span className="rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
+                  {featured.type}
+                </span>
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all group-hover:bg-white group-hover:text-dark-teal">
+                  <ArrowUpRight className="h-4 w-4" />
+                </span>
               </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Other Projects Grid */}
-        <div className="grid gap-8 sm:grid-cols-2">
-          {projects.slice(1).map((project, i) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group overflow-hidden rounded-2xl border border-border bg-card transition-shadow hover:shadow-lg"
-            >
-              <div className={`${project.color} aspect-[16/10]`}>
-                <div className="flex h-full items-center justify-center">
-                  <span className="heading-serif text-3xl text-white/20">
-                    {project.client}
-                  </span>
-                </div>
-              </div>
-              <div className="p-6">
-                <p className="text-xs font-medium text-muted-foreground uppercase">
-                  PROJECT 0{i + 2} &middot; {project.category}
+              <div className="absolute bottom-0 left-0 p-8 sm:p-12">
+                <p className="text-sm font-medium text-white/60 uppercase tracking-wider">
+                  PROJECT 01 · {featured.category}
                 </p>
-                <h3 className="heading-serif mt-2 text-xl">{project.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  {project.description}
+                <h3 className="heading-serif mt-2 text-2xl text-white sm:text-4xl">
+                  {featured.client}
+                </h3>
+                <p className="mt-3 max-w-lg text-sm leading-relaxed text-white/70">
+                  {featured.description}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
+                  {featured.tags.map((tag) => (
                     <Badge
                       key={tag}
                       variant="secondary"
-                      className="rounded-full"
+                      className="rounded-full border-none bg-white/10 text-white hover:bg-white/20"
                     >
                       {tag}
                     </Badge>
                   ))}
                 </div>
               </div>
+            </div>
+          </Link>
+        </motion.div>
+
+        {/* Projects Grid */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {rest.map((project, i) => (
+            <motion.div
+              key={project.client}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: (i % 3) * 0.1 }}
+              className="group overflow-hidden rounded-2xl border border-border bg-card transition-all hover:shadow-lg hover:border-primary/20"
+            >
+              <Link href={project.link} target="_blank" rel="noopener noreferrer">
+                <div className={`${project.color} relative aspect-[16/9]`}>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="heading-serif text-2xl text-white/20">
+                      {project.client}
+                    </span>
+                  </div>
+                  <div className="absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white opacity-0 backdrop-blur-sm transition-opacity group-hover:opacity-100">
+                    <ArrowUpRight className="h-4 w-4" />
+                  </div>
+                  <div className="absolute top-4 left-4">
+                    <span className="rounded-full bg-black/20 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur-sm">
+                      {project.type}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                    PROJECT 0{i + 2} · {project.category}
+                  </p>
+                  <h3 className="heading-serif mt-2 text-lg">{project.client}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-2">
+                    {project.description}
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {project.tags.map((tag) => (
+                      <Badge key={tag} variant="secondary" className="rounded-full text-xs">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>
-
-        {/* Success Stories teaser */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-16 grid items-center gap-8 rounded-2xl border border-border bg-card p-8 sm:grid-cols-3 lg:p-12"
-        >
-          <div className="sm:col-span-1">
-            <PretextDOM
-              text="Success Stories"
-              font="400 32px Prata"
-              lineHeight={40}
-              className="heading-serif text-2xl lg:text-3xl"
-              as="h3"
-            />
-          </div>
-          <div className="flex gap-8 sm:col-span-1 sm:justify-center">
-            <div className="text-center">
-              <p className="heading-serif text-3xl lg:text-4xl">35+</p>
-              <p className="text-sm text-muted-foreground">Happy Clients</p>
-            </div>
-            <div className="text-center">
-              <p className="heading-serif text-3xl lg:text-4xl">20+</p>
-              <p className="text-sm text-muted-foreground">Industries</p>
-            </div>
-          </div>
-          <div className="sm:col-span-1">
-            <p className="text-sm text-muted-foreground">
-              Our sales skyrocketed within months. Their data-driven approach,
-              creativity, and clear communication exceeded expectations.
-            </p>
-            <div className="mt-4 flex items-center gap-1">
-              {[...Array(5)].map((_, i) => (
-                <svg
-                  key={i}
-                  className="h-4 w-4 fill-amber-400"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

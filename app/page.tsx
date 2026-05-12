@@ -5,7 +5,6 @@ import { ServicesSection } from "@/components/sections/services";
 import { WhyUsSection } from "@/components/sections/why-us";
 import { FeaturedWorkSection } from "@/components/sections/featured-work";
 import { ProcessSection } from "@/components/sections/process";
-import { TestimonialsSection } from "@/components/sections/testimonials";
 import { ArticlesSection } from "@/components/sections/articles";
 import { FAQSection } from "@/components/sections/faq";
 import { CTASection } from "@/components/sections/cta";
@@ -22,7 +21,6 @@ export default function Page() {
         <WhyUsSection />
         <FeaturedWorkSection />
         <ProcessSection />
-        <TestimonialsSection />
         <ArticlesSection />
         <FAQSection />
         <CTASection />
